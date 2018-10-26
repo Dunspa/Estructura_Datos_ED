@@ -1,3 +1,13 @@
+// -----------------------------------------------------------------------------
+// Estructura de Datos
+// Práctica 2. Abstracción.
+//
+// Realiza varias pruebas sobre los TDA Diccionario y Termino
+// Función main
+//
+// Jose Luis Gallego Peña - A1
+// -----------------------------------------------------------------------------
+
 #include <fstream>
 #include <iostream>
 #include "Diccionario.h"

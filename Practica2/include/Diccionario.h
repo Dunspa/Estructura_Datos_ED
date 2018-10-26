@@ -1,3 +1,13 @@
+// -----------------------------------------------------------------------------
+// Estructura de Datos
+// Práctica 2. Abstracción.
+//
+// Definición y documentación con Doxygen
+// TDA Diccionario
+//
+// Jose Luis Gallego Peña - A1
+// -----------------------------------------------------------------------------
+
 /**
   * @file Diccionario.h
   * @brief Fichero cabecera del TDA Diccionario

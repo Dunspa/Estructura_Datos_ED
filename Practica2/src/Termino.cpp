@@ -1,3 +1,13 @@
+// -----------------------------------------------------------------------------
+// Estructura de Datos
+// Práctica 2. Abstracción.
+//
+// Declaración
+// TDA Termino
+//
+// Jose Luis Gallego Peña - A1
+// -----------------------------------------------------------------------------
+
 #include "Termino.h"
 #include "Vector_Dinamico.h"
 #include <iostream>
