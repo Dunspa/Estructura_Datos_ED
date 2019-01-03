@@ -1,3 +1,14 @@
+## -----------------------------------------------------------------------------
+## Estructura de Datos
+## Práctica Final: Letras
+##
+## Makefile
+## Genera los tres programas de la práctica y la documentación correspondiente
+## a cada uno de los TDA creados
+##
+## Jose Luis Gallego Peña - A1
+## -----------------------------------------------------------------------------
+
 SRC = src
 INC = include
 OBJ = obj
