@@ -15,7 +15,6 @@
 #include <set>
 #include "Diccionario.h"
 #include "Letra.h"
-#include "Bolsa_Letras.h"
 
 int main(int argc, char * argv[]){
    if (argc != 4){
@@ -40,17 +39,17 @@ int main(int argc, char * argv[]){
    d >> D;
    cout << "Diccionario cargado" << endl;
 
-   ifstream b(argv[2]);
-   if (!b){
+   ifstream c(argv[2]);
+   if (!c){
       cout << "No puedo abrir el fichero " << argv[2] << endl;
 
       return 0;
    }
 
-   Bolsa_Letras B;
-   cout << "Cargamos bolsa de letras..." << endl;
-   f >> B;
-   cout << "Bolsa de letras cargada" << endl;
+   Conjunto_Letras C;
+   cout << "Cargamos conjunto de letras..." << endl;
+   c >> C;
+   cout << "Conjunto de letras cargado" << endl;
 
    ofstream s(argv[3]);
    if (!s){
@@ -59,6 +58,24 @@ int main(int argc, char * argv[]){
       return 0;
    }
 
-   char * buffer = "#Letra FAbs. Frel.";
-   s.write(buffer, strlen(buffer));
+   Conjunto_Letras::iterator it;
+   double total_apariciones = 0;
+   for (it = C.begin() ; it != C.end() ; ++it){
+      total_apariciones += (*it).getNumApariciones();
+   }
+
+   double total_frel = 0;
+   s << "#Letra FAbs. Frel." << endl;
+   for (it = C.begin() ; it != C.end() ; ++it){
+      char c = (*it).getCaracter();
+      double fab = (*it).getNumApariciones();
+      double frel = 100.0 * (fab / total_apariciones);
+      s << c << "\t";
+      s << fab << "\t";
+      s << frel << "% " << endl;
+      total_frel += frel;
+   }
+   s << "Total:\t" << total_apariciones << "\t" << total_frel << "%" << endl;
+
+   return 0;
 }

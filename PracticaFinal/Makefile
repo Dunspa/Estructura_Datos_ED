@@ -6,7 +6,7 @@ CXX = g++ -std=c++11
 CPPFLAGS = -Wall -g  -I$(INC) -c
 
 
-all: documentacion $(BIN)/testdiccionario $(BIN)/letras
+all: documentacion $(BIN)/testdiccionario $(BIN)/letras $(BIN)/cantidad_letras
 # ************ Generación de documentación ******************
 
 documentacion:
@@ -27,6 +27,13 @@ $(BIN)/letras : $(OBJ)/letras.o $(OBJ)/Diccionario.o $(OBJ)/Letra.o $(OBJ)/Bolsa
 
 $(OBJ)/letras.o : $(SRC)/letras.cpp $(INC)/Diccionario.h $(INC)/Letra.h $(INC)/Bolsa_Letras.h
 	$(CXX) -c -o $(OBJ)/letras.o $(SRC)/letras.cpp -I$(INC)
+
+# Programa cantidad_letras
+$(BIN)/cantidad_letras : $(OBJ)/cantidad_letras.o $(OBJ)/Diccionario.o $(OBJ)/Letra.o
+	$(CXX) -o $(BIN)/cantidad_letras $(OBJ)/cantidad_letras.o $(OBJ)/Diccionario.o $(OBJ)/Letra.o
+
+$(OBJ)/cantidad_letras.o : $(SRC)/letras.cpp $(INC)/Diccionario.h $(INC)/Letra.h
+	$(CXX) -c -o $(OBJ)/cantidad_letras.o $(SRC)/cantidad_letras.cpp -I$(INC)
 
 # TDA
 $(OBJ)/Diccionario.o : $(SRC)/Diccionario.cpp
